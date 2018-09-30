@@ -1,0 +1,20 @@
+<div class="col-sm-8 text-left"> 
+  
+<p id="notice"><%= notice %></p>
+ News for <%= @category.name %>
+<p>
+  <strong>Name:</strong>
+  
+  <% @news.each do |new|%>
+    <%=image_tag(new.image_url, style:'width:250px;height:250px;')%><br>
+    <%=new.title%><br>
+    <%=new.content%><br>
+  <% end %>
+ 
+</p>
+ <% if logged_in? && current_user.admin %>
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<% end %>
+<%= link_to 'Back', robs_path %>
+
+</div>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+   <title>ICT</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+ 
+
+  <%= csrf_meta_tags %>
+ 
+<style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+        background-color: #b0c4de;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: auto}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+    background-color: #000000;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color:#556b2f;
+      color: white;
+      /*padding: 15px;*/
+      position:absolute;
+      bottom:0;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
+</head>
+<body>
+  
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#"> <%=link_to image_tag("logo.png", width:'100px',height:'50px'), root_path,class:'navbar-brand'%></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+             <% if logged_in? %>  
+        <li><a href="#"><%= link_to "My Account Detail", user_path(current_user.id) %></a></li>
+        <li><a href="#"><li><a href=""><%= link_to " Home", robs_path %></li></a></li>
+        <li><a href="#"><%= link_to "Logout", session_path(current_user.id), method: :delete %></a></li>
+         
+   
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><%= image_tag current_user.image.url , class:'img-circle' %></a></li></ul>
+        <%= form_tag(robs_path, method: :get) do %>
+  <%= text_field_tag :term, params[:term] , class:'form-control' %>
+  <%= submit_tag 'Search', name: nil %>
+      
+        
+  <% end %>
+      
+      <% else %>
+    <li class="active"><a href="#"><%= link_to "Sign up", new_user_path %></a></li>
+    <li class="active"><a href="#"><%= link_to "Login", new_session_path %></a></li>
+    <% end %>
+    </div>
+   <div class="contain">
+ 
+  <ul class="nav nav-tabs">
+    <li ><a data-toggle="tab" href="#home">WHO WE ARE</a></li>
+    <li><a data-toggle="tab" href="#menu1">WHAT WE DO</a></li>
+    <li><a data-toggle="tab" href="#menu2">TERMS AND CONDITIONS</a></li>
+    <li><a data-toggle="tab" href="#menu3">CONTACT US</a></li>
+    <li>
+      <% if logged_in? && current_user.admin %>
+             <%= link_to 'Post News', new_rob_path%>
+      <% end %>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+     
+      <p1> A private Technology website news firm.</p1>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      
+      <p1> Teach people Technology and trends </p1>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      
+      <p1>Do not make other uncomfortable with your comments.</p1>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+      
+      <p1> Look At the footer for Contact Details</p1>
+    </div>
+    <style>
+      p1{font-family: monospace;
+      font-size:1.5rem;
+      font-style: oblique;
+      color: #fffacd;
+      /* Change background color of buttons on hover */
+
+
+/* Create an active/current tablink class */
+
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+.tab button {
+   
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+    </style>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <div class="well">
+        <p>Technology</p>
+        <p>Is</p>
+        <div class="well">
+        <p>Evething.</p>
+        <p>Isn't it?</p>
+        </div>
+        </div>
+      <p>Link</p>
+      <p>Link</p>
+      <p>Link</p>
+      <p>Link</a></p>
+       <p>Link</p>
+       <p>Link</p>
+       <p>Link</p>
+       <div class="well">
+       <p>Link</p>
+       <p>Link</p>
+       <p>Link</p>
+       <p>Link</p>
+       <p>Link</p>
+       <p>Link</p>
+       <p>Link</p>
+        </div>
+       <p>Link</p>
+        <p>Link</p>
+       <p>Link</p>
+       <p>Link</p>
+       <p>Link</p>
+       <p>Link</p>
+      <div class="well">
+        <p>PUB</p>
+        <p>PUB</p>
+        </div>
+        <p>PUB</p>
+        <p>PUB</p>
+        <p>PUB</p>
+        <p>PUB</p>
+        <p>PUB</p>
+        <p>PUB</p>
+        <div class="well">
+        <p>PUB</p>
+        <p>PUB</p>
+        </div>
+        <p>PUB</p>
+        <p>PUB</p>
+        <p>PUB</p>
+        <p>PUB</p>
+        <p>PUB</p>
+        <p>PUB</p>
+       <p>Link</p>
+       <p>Link</p>
+       <p>Link</p>
+       <p>Link</p>
+       <p>Link</p>
+      
+    </div>
+    <%= yield %>
+   
+    <div class="col-sm-2 sidenav">
+      <div class="well">
+        <p>ADS</p>
+      </div>
+      <div class="well">
+        <p>ADS</p>
+      </div>
+       <p>ADS</p>
+        <p>ADS</p>
+         <p>ADS</p>
+          <p>ADS</p>
+           <p>ADS</p>
+            <p>ADS</p>
+             <p>ADS</p>
+              <p>ADS</p>
+              <div class="well">
+        <p>ADS</p>
+        <p>ADS</p>
+        <p>ADS</p>
+        <p>ADS</p>
+        <p>ADS</p>
+      </div>
+      <div class="well">
+        <p>PUB</p>
+        <p>PUB</p>
+        </div>
+        <p>PUB</p>
+        <p>PUB</p>
+        <p>PUB</p>
+        <p>PUB</p>
+        <p>PUB</p>
+        <p>PUB</p>
+        <p>PUB</p>
+        <p>PUB</p>
+        <p>PUB</p>
+        <p>PUB</p>
+        <p>PUB</p>
+        <p>PUB</p>
+          <p>PUB</p>
+        <p>PUB</p>
+        <p>PUB</p>
+        <p>PUB</p>
+          <p>PUB</p>
+        <p>PUB</p>
+        <p>PUB</p>
+        <p>PUB</p>
+      
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<footer class="footer col-md-12"><p> Copyright © 2018</p>
+<h>Contact Us</h>
+<p>Email: nzeroberto@gmail.com</p>
+<p>Phone: +250787104291</p>
+
+ </footer>
+
+
+
+
+
+</body>
+ 
+</html>

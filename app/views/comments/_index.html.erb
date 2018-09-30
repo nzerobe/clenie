@@ -1,0 +1,24 @@
+<div class="col-sm-8 text-left"> 
+
+
+  
+  <% comments.each do |comment| %>
+    <% unless comment.id.nil? %>
+    
+    <p> <!--<%= comment.name %>-->
+      <%= comment.user.name %>
+     Comment:<%= @comment.name %> <br>
+     
+      <p>
+        <%= comment.content %>
+       <% if comment.user == current_user  %>
+        <%= link_to "Del", [comment.rob, comment], :confirm => 'Are you sure?', :method => :delete %> 
+           <% end %>
+     </p>
+     
+ 
+    <% end %>
+  <% end %>
+
+
+</div>

@@ -1,0 +1,62 @@
+<div class="col-sm-8 text-left"> 
+   
+ <% user = current_user %>
+  
+   <%= link_to "Edit My Account", edit_user_path %>
+    <% if logged_in? %>
+     <%= link_to 'Post Company Information', new_rob_path%>
+  
+     <%= link_to 'Company Category', new_category_path%>
+ <% end %>
+    
+<h1><%= @user.name %>'s page</h1>
+<% @robs.each do |rob| %>
+
+<div style="text-align: center;"><%= image_tag current_user.image.url , class:'img-circle' %></div>
+
+<% end %>
+<p>email address: <%= @user.email %></p>
+
+
+<h1>Most Favorited News</h1>
+<div class="table-responsive">
+<table class="table">
+<tr>
+<th class="col-md-4">Insurance</th> 
+<th class="col-md-4">Education</th> 
+<th class="col-md-4">Hygiene</th> 
+<th class="col-md-4">Transport</th> 
+<th class="col-md-4">Food</th> 
+<th class="col-md-4">Construction</th> 
+<th class="col-md-4">Agriculture</th> 
+<th class="col-md-4">Title</th> 
+<th class="col-md-4">Content</th> 
+<th class="col-md-4">Image</th> 
+</tr>
+<% @robs.each do |rob| %>
+<tr>
+<td><%= rob.windows %> </td>
+<td><%= rob.mac %> </td>
+<td><%= rob.linux %> </td>
+<td><%= rob.android %> </td>
+<td><%= rob.iphone %> </td>
+<td><%= rob.hardware %> </td>
+<td><%= rob.software %> </td>
+<td><%= rob.title %> </td>
+
+<td><%= rob.content %> </td>
+<!--<td><%= rob.image %> </td>-->
+
+<td><div class="profile"><%= image_tag(rob.image_url, style:'width:80px;height:80px;')%></div></td>
+</tr>
+
+<% end %>
+</table>
+</div>
+  </div>
+    
+
+
+    
+
+

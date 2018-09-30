@@ -1,0 +1,91 @@
+
+
+ <div class="col-sm-8 text-left"> 
+   
+
+       <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">
+        <span class="sr-only">Bootstrap</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Categories</a>
+    </div>
+    <div id="gnavi" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <% @category.each do |category| %>
+          <li> <%= link_to category.name, category_path(category.id) %></li>
+<% end %>
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+        
+   
+<h4>Technology News Today</h4>
+     
+  <% @robs.each do |rob| %>
+  
+  <div class="contents"><ul class="row"> <li class="col-sm-6 col-md-offset-1 col-md-8">
+    <%= image_tag rob.image_url(:thumb) %><br>
+       <%= link_to rob.title, rob_path(rob.id) %><br></li></ul>
+    <% if current_user.id == rob.user_id %>
+      
+    <% end %>
+    </div>
+<% end %>
+      
+   
+
+
+          
+</nav>
+
+<!-- <div class="slideshow-container">-->
+<!--<section>-->
+<!--  <img class="mySlides" <%= image_tag "13.jpg", width:'80%' %>>-->
+<!--  <img class="mySlides" <%= image_tag "14.jpg", width:'80%' %>>-->
+<!--  <img class="mySlides" <%= image_tag "22.jpg", width:'80%' %>>-->
+<!--   <img class="mySlides" <%= image_tag "30.jpg", width:'80%' %>>-->
+<!--   <img class="mySlides" <%= image_tag "55.jpg", width:'80%' %>>-->
+<!--   <img class="mySlides" <%= image_tag "56.jpg", width:'80%' %>>-->
+<!--   <img class="mySlides" <%= image_tag "60.jpg", width:'80%' %>>-->
+<!--    <img class="mySlides" <%= image_tag "84.jpg", width:'80%' %>>-->
+
+<!--    </section></div>-->
+
+ 
+  
+   
+
+
+// <script>
+// // Automatic Slideshow - change image every 3 seconds
+// var myIndex = 0;
+// carousel();
+
+// function carousel() {
+//     var i;
+//     var x = document.getElementsByClassName("mySlides");
+//     for (i = 0; i < x.length; i++) {
+//       x[i].style.display = "none";
+//     }
+//     myIndex++;
+//     if (myIndex > x.length) {myIndex = 1}
+//     x[myIndex-1].style.display = "block";
+//     setTimeout(carousel, 3000);
+// }
+// </script>
+
+    
+        
+
+  </div>
+
+
