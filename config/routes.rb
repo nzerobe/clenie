@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :category_types
   resources :news
   resources :categories
   get 'sessions/new'
@@ -28,8 +29,7 @@ Rails.application.routes.draw do
     resources :news
   end
   resources :robs do
-    resources :categories
-  end
+    end
   #devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth' }
   root to: 'sessions#new'
   

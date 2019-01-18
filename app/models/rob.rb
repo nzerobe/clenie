@@ -4,7 +4,7 @@ class Rob < ApplicationRecord
     validates :image, presence: true
       #validates :category, presence: true
     belongs_to :user
-    belongs_to :category
+    # belongs_to :category
     # belongs_to :comment
     has_many :favorites, dependent: :destroy
     has_many :favorite_users, through: :favorites, source: :user

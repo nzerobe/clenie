@@ -1,18 +1,15 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-  before_action :user_is_logged_in, only: [:new,:edit,:show,:index]
+
   # GET /categories
   # GET /categories.json
   def index
     @categories = Category.all
-    @user = User.all
   end
 
   # GET /categories/1
   # GET /categories/1.json
   def show
-     @category = Category.find(params[:id])
-     @news=@category.robs
   end
 
   # GET /categories/new
@@ -27,13 +24,11 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def create
-    # @rob = Rob.find(params[:rob_id])
     @category = Category.new(category_params)
-    @user =User.find_by(id: session[:user_id])
-    @category.user_id=@user.id
+
     respond_to do |format|
       if @category.save
-        format.html { redirect_to @category, notice: 'This Category is successfully created.' }
+        format.html { redirect_to @category, notice: 'Category was successfully created.' }
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new }
@@ -66,7 +61,6 @@ class CategoriesController < ApplicationController
     end
   end
 
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
@@ -75,8 +69,6 @@ class CategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:name)
+      params.require(:category).permit(:category_name)
     end
-    
- 
 end
